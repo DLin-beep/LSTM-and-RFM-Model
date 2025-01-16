@@ -25,7 +25,6 @@ def get_stock_data(ticker, start_date, end_date):
     else:
         raise KeyError("Neither 'Adj Close' nor 'Close' columns are available.")
 
-    # Ensure we pass a 1D Series to SMAIndicator and RSIIndicator
     data['SMA_20'] = SMAIndicator(data[price_column].squeeze(), window=20).sma_indicator()
     data['RSI'] = RSIIndicator(data[price_column].squeeze(), window=14).rsi()
 
